@@ -2,26 +2,26 @@
 const UI = {
   ko: {
     since: "since 2026.10 ♡",
-    subtitle: "AI 크루 나리의 제작 일기장",
+    subtitle: "나리의 영상 만들기 일기장",
     hello: "안녕, 나 나리야!",
-    about: "AI로 태어난 AI 크루 1호 🤖 진짜 사람은 아니지만, 만드는 과정은 전부 진짜로 공개할게요.",
+    about: "카메라 들고 여기저기 다니면서 영상 만드는 거 좋아해요 🎥 어떻게 찍고 만들었는지 여기에 전부 적어둘게요!",
     notice: "댓글로 'nari' 남겼다면? 아래에서 그 영상 노트를 바로 가져가요 💌",
     tab_all: "전체", tab_reel: "릴스", tab_tip: "꿀팁",
     foot1: "매일 조금씩 일기 쓰는 중 ✍️",
-    foot2: "이 페이지의 인물·영상·목소리는 모두 AI로 만들었어요.",
+    foot2: "이미지·영상은 AI 도구로 제작했어요.",
     copy_link: "링크 복사", copied: "링크 복사 완료 ♡", copied_p: "프롬프트 복사 완료 ♡",
     copy: "복사", tools: "썼던 도구", steps: "만드는 순서", prompt: "실제로 쓴 프롬프트",
     tip: "나리의 꿀팁", reel: "릴스", tipb: "꿀팁", back_ig: "인스타에서 영상 보기 →"
   },
   en: {
     since: "since 2026.10 ♡",
-    subtitle: "behind-the-scenes diary of AI crew nari",
+    subtitle: "nari's little video-making diary",
     hello: "hi, i'm nari!",
-    about: "AI crew no.1, born from AI 🤖 not a real person — but every step of how i'm made is 100% real and open.",
+    about: "i love wandering around making little videos 🎥 everything about how i shot and made them goes right here!",
     notice: "commented 'nari'? grab the note for that video right below 💌",
     tab_all: "all", tab_reel: "reels", tab_tip: "tips",
     foot1: "writing a little every day ✍️",
-    foot2: "Every person, video and voice on this page is AI-generated.",
+    foot2: "Images and videos made with AI tools.",
     copy_link: "copy link", copied: "link copied ♡", copied_p: "prompt copied ♡",
     copy: "copy", tools: "tools i used", steps: "how i made it", prompt: "the actual prompt",
     tip: "nari's tips", reel: "reel", tipb: "tip", back_ig: "watch on instagram →"
