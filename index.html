@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>nari's diary</title>
+<meta name="description" content="AI 크루 나리의 제작 일기 — 릴스 만드는 법, 프롬프트, 꿀팁 전부 공개">
+<meta name="theme-color" content="#FFF8F1">
+<meta property="og:title" content="nari's diary 🎀">
+<meta property="og:description" content="댓글 'nari' 남긴 자료, 전부 여기 있어요 · AI 영상 제작 노트">
+<meta property="og:image" content="https://nari-ai-lab.github.io/img/nari.jpg">
+<meta property="og:url" content="https://nari-ai-lab.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="img/st_bow.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Gowun+Dodum&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="paper">
+  <header class="top">
+    <div class="since" data-i18n="since"></div>
+    <button class="lang" id="langBtn" aria-label="language">
+      <span data-l="ko">한</span><span class="sep">·</span><span data-l="en">EN</span>
+    </button>
+  </header>
+
+  <section class="cover">
+    <img class="st st-bow" src="img/st_bow.png" alt="">
+    <h1 class="title">nari's <span>diary</span></h1>
+    <p class="subtitle" data-i18n="subtitle"></p>
+  </section>
+
+  <section class="me">
+    <figure class="polaroid tilt-l">
+      <img class="tape tape-top" src="img/tape.png" alt="">
+      <img class="photo" src="img/nari.jpg" alt="nari">
+      <figcaption>hi, it's nari ♡</figcaption>
+    </figure>
+    <div class="bubble">
+      <p class="hello" data-i18n="hello"></p>
+      <p data-i18n="about"></p>
+      <div class="chips"><span>#AI크루1호</span><span>#AIvideo</span><span>#제작일기</span></div>
+      <img class="st st-robot" src="img/st_robot.png" alt="">
+    </div>
+  </section>
+
+  <section class="notice">
+    <img class="st st-heart" src="img/st_heart.png" alt="">
+    <p data-i18n="notice"></p>
+  </section>
+
+  <nav class="tabs" id="tabs">
+    <button data-f="all" class="on" data-i18n="tab_all"></button>
+    <button data-f="reel" data-i18n="tab_reel"></button>
+    <button data-f="tip" data-i18n="tab_tip"></button>
+  </nav>
+
+  <main class="grid" id="grid"></main>
+
+  <footer class="foot">
+    <img class="st st-star" src="img/st_star.png" alt="">
+    <a class="ig" href="https://www.instagram.com/nari.ai.lab/" target="_blank" rel="noopener">@nari.ai.lab</a>
+    <p data-i18n="foot1"></p>
+    <p class="small" data-i18n="foot2"></p>
+  </footer>
+</div>
+
+<div class="sheet" id="sheet" aria-hidden="true">
+  <div class="sheet-bg" data-close></div>
+  <article class="sheet-page" role="dialog" aria-modal="true">
+    <div class="sheet-bar">
+      <button class="back" data-close aria-label="close">←</button>
+      <button class="copylink" id="copyLink" data-i18n="copy_link"></button>
+    </div>
+    <div id="note"></div>
+  </article>
+</div>
+
+<div class="toast" id="toast"></div>
+<script src="app.js"></script>
+</body>
+</html>
