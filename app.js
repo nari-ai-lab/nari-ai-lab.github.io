@@ -39,6 +39,398 @@ const UI = {
 };
 
 const NOTES = [
+{
+  "id": "r09",
+  "type": "reel",
+  "date": "2026.10.15",
+  "clip": "clip/r09.mp4",
+  "img": "img/r09.jpg",
+  "sticker": "img/st_star.png",
+  "ko": {
+    "title": "UFO에 4번 납치됐다 왔어요 🛸",
+    "sum": "우주 속 빛줄기에 빨려 올라가면서 옷이 4번 바뀌어요. 진짜 3D로 빙글 도는 건 3초짜리 짧은 영상이고, 나머지는 전부 편집이에요!",
+    "steps": [
+      [
+        "초록 배경 공중 사진",
+        "옷마다 공중에 둥실 떠 있는 전신 사진을 초록 배경으로. 기준 얼굴 사진을 같이 넣어야 뒤로 갈수록 얼굴이 안 바뀌어요."
+      ],
+      [
+        "3초 회전 영상",
+        "사진 한 장으로 '제자리에서 천천히 도는' 3초 영상을 뽑아요. 이게 진짜 3D 회전의 비밀!"
+      ],
+      [
+        "배경 지우고 얹기",
+        "초록을 지우고 우주·UFO·빛줄기 위에 올려요. 아래서 크게 등장 → 잠깐 머물기 → 빙글 돌면서 빛 속으로 쏙."
+      ],
+      [
+        "소품 공전",
+        "옷마다 어울리는 소품 4개가 주위를 빙글빙글. 뒤로 갈 땐 작게, 앞으로 올 땐 크게."
+      ]
+    ],
+    "tips": [
+      "긴 영상을 통째로 뽑는 것보다 '짧은 클립 + 편집'이 훨씬 싸요",
+      "따라 하고 싶은 영상은 0.1초 단위로 쪼개 보면 움직임이 다 보여요",
+      "옷이 바뀌는 간격을 2초로 맞추면 음악 박자 맞추기 쉬워요"
+    ],
+    "cost": "대략 크레딧: 사진 ~10 + 3초 회전 영상 4개 ~21 + 배경·소품 ~12"
+  },
+  "en": {
+    "title": "Abducted by a UFO 4 times 🛸",
+    "sum": "Sucked up a beam of light in space, with a new outfit every time. The real 3D spin is just a 3-second clip — everything else is editing!",
+    "steps": [
+      [
+        "Green-screen floating photo",
+        "One full-body floating shot per outfit on a green background. Add your reference face photos so the face doesn't drift."
+      ],
+      [
+        "3-second turn",
+        "Turn that photo into a 3s clip of her slowly spinning in place. That's the whole 3D secret!"
+      ],
+      [
+        "Key and composite",
+        "Remove the green, drop her onto space + UFO + beam. Enter big from below → hover → spin up into the light."
+      ],
+      [
+        "Orbiting props",
+        "4 matching props per outfit circling around — smaller behind her, bigger in front."
+      ]
+    ],
+    "tips": [
+      "Short clip + editing is way cheaper than generating one long video",
+      "Split the video you want to copy into 0.1s frames — you'll see every move",
+      "Changing outfits every 2s makes it easy to match the music beat"
+    ],
+    "cost": "Rough credits: photos ~10 + four 3s turn clips ~21 + background & props ~12"
+  },
+  "tools": [
+    "Nano Banana 2",
+    "Kling 3.0",
+    "ffmpeg"
+  ],
+  "prompt": `[1] Floating photo (one per outfit)
+Identity: the exact same young Korean woman as in reference images 1-3 (master face, face angle sheet, body) - keep her face identity precisely. Outfit: copy the outfit from reference image 4 only; ignore the face in image 4. Pose: floating weightlessly in mid-air, arms softly spread with relaxed open hands, toes pointed down, one knee slightly bent, hair gently lifted. Full body head to toe, centered, body height about 60% of frame. Background: perfectly flat solid pure chroma-key green (#00FF00), no floor, no shadow. Flawless clear glowing skin, slim V-line face, soft smile at camera.
+
+[2] 3-second turn (image to video)
+She floats weightlessly in mid-air and her whole body slowly rotates in place around a vertical axis, turning to her left about 120 degrees so we see her side profile and part of her back, then her head turns back toward the camera with a soft smile. Keep her face exactly the same and pretty throughout. Hair and skirt sway gently from the turn. Arms stay softly spread. She stays in the center at the same size. Locked static camera, no zoom, no pan. Background stays solid flat chroma green, no floor.`
+},
+{
+  "id": "r07",
+  "type": "reel",
+  "date": "2026.10.15",
+  "clip": "clip/r07.mp4",
+  "img": "img/r07.jpg",
+  "sticker": "img/st_heart.png",
+  "ko": {
+    "title": "구멍에 빠졌더니 세계가 3번 바뀜 🕳️",
+    "sum": "공원에서 뒤로 한 걸음 → 구멍으로 쏙 → 흑백 콜라주 → 종이 스크랩북 → 3D 인형 → 철퍼덕 착지. 인스타 피드를 넘기는 것처럼 이어 붙였어요.",
+    "steps": [
+      [
+        "장면별 사진 5장",
+        "공원·흑백 도시 콜라주·파란 종이 스크랩북·3D·착지 장면을 사진으로 먼저 만들어요."
+      ],
+      [
+        "한 번에 15초",
+        "사진 5장을 참고로 넣고, 구간마다 시간과 스타일을 적어요."
+      ],
+      [
+        "옷은 한 가지 색으로",
+        "사진·종이·3D 어디서든 같은 사람으로 보이게 원톤 옷이 좋아요."
+      ],
+      [
+        "피드처럼 넘기기",
+        "장면을 게시물처럼 세로로 쌓고 스크롤하듯 넘겨요."
+      ]
+    ],
+    "tips": [
+      "구간마다 '카메라 고정'을 꼭 적기",
+      "종이 장면이 뻣뻣하면 오려낸 인물만 따로 움직이면 자연스러워요",
+      "마지막에 'comment nari'로 말 걸기"
+    ],
+    "cost": "대략 크레딧: 사진 5장 ~10 + 영상(720p, 15초) 105 + 업스케일 ~3"
+  },
+  "en": {
+    "title": "Fell into a hole, came back in 3 universes 🕳️",
+    "sum": "One step back in the park → down a hole → b&w collage → paper scrapbook → 3D doll → splat landing. Stitched together like scrolling an Instagram feed.",
+    "steps": [
+      [
+        "5 scene photos",
+        "Make the park, b&w city collage, blue paper scrapbook, 3D and landing scenes as photos first."
+      ],
+      [
+        "15s in one go",
+        "Feed all 5 as references and write the time + style for each section."
+      ],
+      [
+        "One-color outfit",
+        "A one-tone outfit reads as the same person in photo, paper and 3D."
+      ],
+      [
+        "Feed-scroll edit",
+        "Stack scenes like posts and scroll through them."
+      ]
+    ],
+    "tips": [
+      "Write 'camera locked' in every section",
+      "If the paper scene feels stiff, animate a cut-out of her on its own",
+      "End with 'comment nari' to start a conversation"
+    ],
+    "cost": "Rough credits: 5 photos ~10 + video (720p, 15s) 105 + upscale ~3"
+  },
+  "tools": [
+    "Nano Banana 2",
+    "Seedance 2.5",
+    "Upscale"
+  ],
+  "prompt": `Vertical 9:16 surreal falling reel of one pretty young Korean woman, NARI, wavy dark-brown hair with curtain bangs, chocolate-brown suede fringe mini dress and brown slouchy knee boots, same face and outfit in every style. Five sequences with hard cuts, camera locked in every shot, no zoom, pan or tilt.
+
+0-4s | PARK: continuing exactly from the start image, she stands on the sunny park path smiling, then takes one small step backwards; a perfectly round black hole opens in the paved ground right behind her heel, she loses balance with a cute surprised gasp, arms flying up, and falls backwards straight down into the hole and disappears. The empty hole remains. Camera fixed.
+
+4-7s | BLACK-AND-WHITE CITY COLLAGE (exactly like the first reference image): she is a full-color photo cutout with a thin uneven white paper border, falling from the top of the frame down through the center past torn black-and-white skyscrapers and dramatic clouds, arms and legs moving softly and naturally, hair and fringe flowing upward, exits at the bottom. Static background.
+
+7-10s | BLUE SKY PAPER SCRAPBOOK (exactly like the second reference image): she is a handmade paper cutout with rough edges tumbling slowly in the same falling pose over white crumpled paper, torn blue sky pieces, fluffy clouds and the small vintage window; paper fibers and soft shadows. Gentle drifting motion only.
+
+10-13s | CUTE 3D (exactly like the third reference image): she becomes the adorable chibi 3D character, falling through a bright blue sky past soft fluffy clouds toward green rolling hills, giggling with arms out, fringe fluttering.
+
+13-15s | BACK IN THE PARK (exactly like the fourth reference image): same park path, she drops in from above the frame and lands softly on the pavement in a comical sprawl, then props up on one elbow and looks at the camera with a dazed, embarrassed cute smile.
+
+Audio: whoosh of wind while falling, a soft paper rustle in the collage shots, a cute boing in the 3D shot, a soft thud on landing. No dialogue, no music, no text, no watermark.`
+},
+{
+  "id": "r06",
+  "type": "reel",
+  "date": "2026.10.15",
+  "clip": "clip/r06.mp4",
+  "img": "img/r06.jpg",
+  "sticker": "img/st_camera.png",
+  "ko": {
+    "title": "뉴욕 명소 6곳, 옷 6벌 🗽",
+    "sum": "영상 생성 없이 사진 6장으로 만든 10초 OOTD. 제일 싸고 제일 빨라요!",
+    "steps": [
+      [
+        "장소마다 옷 한 벌",
+        "타임스스퀘어·5번가·센트럴파크·그랜드센트럴·브루클린 브리지·베슬. 장소 분위기에 맞춰서."
+      ],
+      [
+        "손 흔드는 전신 사진",
+        "같은 얼굴 사진을 참고로 넣고, 전신·정면·손 흔들기로 통일해요."
+      ],
+      [
+        "편집",
+        "한 장에 1.7초, 살짝 줌인 + 장소 이름 글자."
+      ],
+      [
+        "음악",
+        "인스타 앱에서 경쾌한 곡으로!"
+      ]
+    ],
+    "tips": [
+      "사진만으로도 릴스가 돼요 — 대신 컷을 빠르게",
+      "'몇 번이 제일 좋아?' 질문이 댓글을 불러요",
+      "장소 글자는 얼굴 안 가리게"
+    ],
+    "cost": "대략 크레딧: 사진 6장 ~9 (영상 생성 0)"
+  },
+  "en": {
+    "title": "6 NYC spots, 6 outfits 🗽",
+    "sum": "A 10s OOTD made from just 6 photos, no video generation. Cheapest and fastest!",
+    "steps": [
+      [
+        "One outfit per spot",
+        "Times Square, Fifth Ave, Central Park, Grand Central, Brooklyn Bridge, the Vessel — dressed for each."
+      ],
+      [
+        "Waving full-body shots",
+        "Same face reference every time; keep it full body, facing camera, waving."
+      ],
+      [
+        "Edit",
+        "1.7s per photo, slight zoom-in + the place name."
+      ],
+      [
+        "Music",
+        "Add an upbeat song in the Instagram app!"
+      ]
+    ],
+    "tips": [
+      "Photos alone can make a reel — just cut fast",
+      "'Which one is your fave?' brings comments",
+      "Keep the place text off the face"
+    ],
+    "cost": "Rough credits: 6 photos ~9 (no video generation)"
+  },
+  "tools": [
+    "Nano Banana 2",
+    "ffmpeg"
+  ],
+  "prompt": `Vertical iPhone photo in Times Square, New York, daytime crowd and billboards behind. The young Korean woman from the reference image (same face, wavy dark-brown hair with curtain bangs, gold hoops) stands full body facing the camera, waving one hand with a playful smile. Outfit: black wool beret, grey washed-denim corset vest with silver buckles over a black long-sleeve top, burgundy plaid ruffled mini skirt, black knee-high slouch boots. Natural daylight, real street photo, realistic proportions.
+
+(Same prompt for the other 5 spots — only the place and the outfit change.)`
+},
+{
+  "id": "r05",
+  "type": "reel",
+  "date": "2026.10.15",
+  "clip": "clip/r05.mp4",
+  "img": "img/r05.jpg",
+  "sticker": "img/st_robot.png",
+  "ko": {
+    "title": "편집 커서가 내 하루를 망쳤다 🙃",
+    "sum": "화면 속 편집 커서가 진짜 물건처럼 튀어나와서 아이스크림을 복사하고, 회전목마를 칠하고, 귀걸이를 키워요. 15초 한 번에!",
+    "steps": [
+      [
+        "캐릭터 시트 한 장",
+        "얼굴·옷이 한 장에 정리된 시트를 참고로 넣으면 15초 내내 같은 사람이에요."
+      ],
+      [
+        "5초씩 3장면",
+        "아이스크림 복사 → 페인트 통 → 마지막 장난. 장면마다 '도구 → 대상 → 결과'를 한 줄로."
+      ],
+      [
+        "커서 모양 정해주기",
+        "화살표·페인트 통 모양을 아주 자세히. 안 그러면 손가락 모양 커서가 나와요."
+      ],
+      [
+        "업스케일",
+        "720p로 뽑고 1080으로 키우기."
+      ]
+    ],
+    "tips": [
+      "'바뀌는 건 이것만' 규칙을 꼭 적기 — 아니면 다른 것까지 바뀌어요",
+      "대사는 빼고 효과음만, 클릭 소리가 웃음 포인트",
+      "마지막 표정은 길게 잡아야 리액션이 읽혀요"
+    ],
+    "cost": "대략 크레딧: 영상(720p, 15초) 105 + 업스케일 ~3"
+  },
+  "en": {
+    "title": "The edit cursor ruined my day 🙃",
+    "sum": "An editing cursor pops out like a real object: duplicates my ice cream, repaints the carousel, and blows up my earring. 15s in one go!",
+    "steps": [
+      [
+        "One character sheet",
+        "A sheet with face + outfit keeps her the same person for all 15s."
+      ],
+      [
+        "3 scenes × 5s",
+        "Ice-cream duplicate → paint bucket → final prank. One line per scene: tool → target → result."
+      ],
+      [
+        "Define the cursor",
+        "Describe the arrow and bucket shapes in detail, or you'll get a pointing-hand cursor."
+      ],
+      [
+        "Upscale",
+        "Render 720p, upscale to 1080."
+      ]
+    ],
+    "tips": [
+      "Always write 'only this changes' rules or other things change too",
+      "No dialogue, just sound effects — the clicks are the joke",
+      "Hold the last reaction long enough to read"
+    ],
+    "cost": "Rough credits: video (720p, 15s) 105 + upscale ~3"
+  },
+  "tools": [
+    "Seedance 2.5",
+    "Upscale"
+  ],
+  "prompt": `@Image 1 defines exactly ONE woman, NARI: her face, wavy dark-brown hair with curtain bangs, gold hoop earrings, navy cropped zip hoodie over a white ringer tee, white pleated mini skirt, white knee socks and white platform loafers. Keep this same identity and outfit throughout. All views on the sheet depict one person. Do not copy its studio background, poses, lighting, panel layout or framing. Her eyes are uncovered. Her left gold hoop earring stays attached to her left earlobe.
+
+A live-action amusement-park comedy, vertical 9:16: a mischievous physical editing cursor first gives NARI a treat, then overdoes its helpful tricks until she catches it, only to suffer one final harmless prank. NARI is curious, expressive and quick to react: delighted anticipation turns into annoyance and finally an incredulous look. Render natural skin, real ice cream and painted carousel surfaces.
+
+Three timed sequences with cuts on action. Keep each tool, its target and the visible consequence readable together. Natural-speed performance. The tools are tangible matte-white objects with thin dark edges, perspective, occlusion and soft shadows, integrated into the same sunlight as NARI.
+
+TOOL SHAPES: The same single cursor has exactly two distinct silhouettes. Its default is a classic computer arrow pointing diagonally toward the upper left, with a triangular pointed head and a short straight stem, matte-white with a thin black outline, forearm-length until NARI shrinks it. Its paint-bucket form is a small white pail tilted about 45 degrees, with a curved carrying handle and an open oval rim facing downward toward the target. Each tool change is a crisp instantaneous snap of the entire object. There is never a hand-shaped, pointing-finger or glove cursor. Every click is a short forward dip of the active tool itself, synchronized to a distinct click sound.
+
+SELECTION AND TRANSFORM DETAILS: A selection is a complete closed rectangular outline of alternating black and white dashes, visibly marching around all four sides. A transform frame has four connected thin edges and exactly eight white square handles: four corners and four edge midpoints. The outline encloses only the intended object. After an operation its frame disappears; the changed object stays changed. All controls are pictorial shapes only.
+
+SETTING: Bright, gentle sunlight from upper camera-left. An ice-cream counter near an idle white carousel along a sunny amusement-park walkway. Background visitors move independently and do not interact with the tools. NARI and the cursor attend to one another or the edited objects rather than looking into the lens.
+
+0-5s | TOO MUCH ICE CREAM
+Open immediately on NARI holding a single-scoop vanilla cone in her right hand, ready for a bite; her face, cone and hovering arrow share a medium close vertical frame. The arrow closes a small dashed rectangular selection around the original scoop only, keeping the cone and her face outside. The arrow tip dips forward for four distinct clicks. Identical scoops stack directly on top, touching one another, until the cone holds a precarious tower of five. The selection releases. NARI first smiles broadly, then follows the rising tower with her eyes; as it leans she cups her left hand under the cone and steadies it with both hands, her smile tightening into concentration.
+<Distinct clicks, soft duplication pops, a small surprised breath and park air.> Nobody speaks.
+
+5-10s | MAKE UP YOUR MIND
+Cut to NARI, hands now empty, holding the support pole of a stationary white carousel horse and preparing to mount. The entire arrow snaps into the white PAINT BUCKET beside the still-white horse. Its lower rim dips to touch the horse's painted flank and clicks: strawberry-milk pink spreads cleanly across only the horse's body. NARI admires it and lifts one foot toward the step. The bucket dips and clicks a second time, filling the same horse body pale mint. She stops mid-mount, lowers her foot and turns her head toward the bucket with a questioning raised eyebrow. It snaps back to an arrow and hovers just beyond her reach.
+<Tool-change snap, two clicks with short fill sounds.> Nobody speaks.
+
+10-15s | ONE LAST CLICK
+NARI abruptly turns and catches the arrow's edge with both hands. A complete four-sided transform frame with eight white square handles appears around the arrow only. She pinches two opposite corner handles inward; the frame and arrow contract together until the arrow is finger length, keeping its triangular head and short stem. She holds it between her right thumb and index finger, smiling with relief. The tiny arrow twists its tip toward her left gold hoop earring and makes one visible click. Only that hoop earring enlarges from its earlobe attachment, growing into a thin gold ring wider than her face that hangs past her chin and frames her cheek. Her ear, face and head keep their original size. Finish in a three-quarter close view: NARI looks at the giant hoop from the corner of her eye, eyebrows lowered, lips pressed together, then gives a short exasperated breath. Hold long enough to read that look.
+<Pinching squeak, tiny click, a soft metallic chime, a short sigh.> Nobody speaks.
+
+PRESERVE: Exactly one NARI and one continuous cursor. Duplication affects scoops only. Paint fills affect the carousel horse's body only. Shrinking affects the cursor only. The final enlargement affects the existing left hoop earring only. Every operation has a visible tool action, localized change and release. Keep completed changes across cuts. All mishaps are soft and harmless.
+
+AUDIO AND IMAGE: Park air, distant birds, footsteps, fabric and synchronized editing-tool sounds. NARI may breathe or gasp without words. No dialogue, narration, background music, subtitles, on-screen text, letters, numbers, logo or watermark. One full-frame camera view at a time, no split screen or reference-sheet layout.`
+},
+{
+  "id": "r04",
+  "type": "reel",
+  "date": "2026.10.14",
+  "clip": "clip/r04.mp4",
+  "img": "img/r04.jpg",
+  "sticker": "img/st_bow.png",
+  "ko": {
+    "title": "엄마 로망 품새 + 아빠 로망 피아노 🎹🥋",
+    "sum": "원본 영상의 동작을 그대로 따와서 나리 몸에 입혔어요. 사진 한 장 + 원본 영상 하나면 끝! (inspired by @hyewon_u3230)",
+    "steps": [
+      [
+        "거실 사진 먼저",
+        "흰 피아노·흰 소파가 있는 밝은 거실에 서 있는 전신 사진. 동작이 잘 보이게 짧은 옷으로."
+      ],
+      [
+        "원작자 허락",
+        "남의 영상 동작을 빌릴 땐 꼭 물어보고, 캡션에 크레딧!"
+      ],
+      [
+        "동작 따오기",
+        "사진 + 원본 영상을 넣으면 동작·타이밍을 그대로 따라 해요. 720p로 뽑고 업스케일."
+      ],
+      [
+        "글자 다시 쓰기",
+        "AI가 화면 위 글자를 깨뜨려서 띠로 가리고 자막으로 다시 넣었어요."
+      ]
+    ],
+    "tips": [
+      "원본 영상에서 '사람만 바꾸기'는 카메라가 흔들리고 어려 보였어요 → 동작만 따오기가 정답",
+      "배경을 사진에 미리 넣으면 영상 내내 그 방이 유지돼요",
+      "동작이 큰 영상은 머리부터 발끝까지 나온 사진으로"
+    ],
+    "cost": "대략 크레딧: 사진 ~6 + 동작 따오기(720p, 18초) 126 + 업스케일 ~3"
+  },
+  "en": {
+    "title": "Mom's dream taekwondo + Dad's dream piano 🎹🥋",
+    "sum": "I borrowed the exact moves from the original video and put them on me. One photo + one source video! (inspired by @hyewon_u3230)",
+    "steps": [
+      [
+        "Living-room photo first",
+        "A full-body shot in a bright living room with a white piano and sofa. Short outfit so the moves read."
+      ],
+      [
+        "Ask the creator",
+        "If you borrow someone's moves, ask first and credit them in the caption!"
+      ],
+      [
+        "Copy the motion",
+        "Photo + source video → same moves and timing. Render 720p, upscale."
+      ],
+      [
+        "Redo the text",
+        "The AI garbled on-screen text, so I covered it and re-added subtitles."
+      ]
+    ],
+    "tips": [
+      "Swapping only the person in the original shook the camera and looked childish → copy the motion instead",
+      "Put the background in your photo so the room stays the same",
+      "Big moves need a head-to-toe photo"
+    ],
+    "cost": "Rough credits: photo ~6 + motion copy (720p, 18s) 126 + upscale ~3"
+  },
+  "tools": [
+    "Nano Banana 2",
+    "Motion Control",
+    "Upscale"
+  ],
+  "prompt": `The woman from the reference image performs exactly the same full-body motion and timing as the person in the source video: the martial-arts stances and the piano-playing gestures at the white piano. Keep her face, hair, cropped white wrap top with black belt and black shorts, and the bright living room with the white piano and white sofa from the reference image. Fixed camera, wide vertical framing, photoreal.`
+},
   {
     id: "r03", type: "reel", date: "2026.10.14", clip: "clip/r03.mp4", img: "img/r03.jpg", sticker: "img/st_bow.png",
     ko: {
