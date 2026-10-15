@@ -11,7 +11,12 @@ const UI = {
     foot2: "이미지·영상은 AI 도구로 제작했어요.",
     copy_link: "링크 복사", copied: "링크 복사 완료 ♡", copied_p: "프롬프트 복사 완료 ♡",
     copy: "복사", tools: "썼던 도구", steps: "만드는 순서", prompt: "실제로 쓴 프롬프트",
-    tip: "나리의 꿀팁", reel: "릴스", tipb: "꿀팁", back_ig: "인스타에서 영상 보기 →"
+    tip: "나리의 꿀팁", reel: "릴스", tipb: "꿀팁", back_ig: "인스타에서 영상 보기 →",
+    sub_h: "새 노트 나오면 메일로 받기 💌", sub_p: "지금 다 못 봤다면? 새 영상 노트가 올라올 때마다 메일로 살짝 보내드릴게요.",
+    sub_ph: "이메일 주소", sub_btn: "받을래요", sub_agree: "(필수) 개인정보 수집·이용 동의", sub_more: "자세히",
+    sub_detail: "수집 항목: 이메일 · 목적: 새 노트 알림 메일 발송 · 보유 기간: 구독 해지 요청 시까지(최대 2년) · 동의하지 않을 수 있으며, 이 경우 메일을 받을 수 없어요. 해지는 메일 답장이나 인스타 DM으로 요청해 주세요.",
+    sub_ok: "구독 완료! 곧 편지할게요 ♡", sub_err_mail: "이메일을 다시 확인해 주세요", sub_err_agree: "동의에 체크해 주세요", sub_done: "구독해줘서 고마워요 ♡",
+    sub_note: "이 노트, 나중에 다시 보고 싶다면 💌"
   },
   en: {
     since: "since 2026.10 ♡",
@@ -24,7 +29,12 @@ const UI = {
     foot2: "Images and videos made with AI tools.",
     copy_link: "copy link", copied: "link copied ♡", copied_p: "prompt copied ♡",
     copy: "copy", tools: "tools i used", steps: "how i made it", prompt: "the actual prompt",
-    tip: "nari's tips", reel: "reel", tipb: "tip", back_ig: "watch on instagram →"
+    tip: "nari's tips", reel: "reel", tipb: "tip", back_ig: "watch on instagram →",
+    sub_h: "get new notes by email 💌", sub_p: "no time right now? i'll send you a little email whenever a new video note drops.",
+    sub_ph: "your email", sub_btn: "count me in", sub_agree: "(required) I agree to the collection and use of my email", sub_more: "details",
+    sub_detail: "Collected: email · Purpose: new-note emails · Kept until you unsubscribe (max 2 years) · You may decline, but then you won't get emails. Unsubscribe anytime by replying or DMing on Instagram.",
+    sub_ok: "you're in! talk soon ♡", sub_err_mail: "please check your email", sub_err_agree: "please tick the agreement box", sub_done: "thanks for subscribing ♡",
+    sub_note: "want this note again later? 💌"
   }
 };
 
@@ -166,6 +176,58 @@ async function copyText(txt){
   catch(e){ const ta=document.createElement("textarea"); ta.value=txt; document.body.appendChild(ta); ta.select(); try{document.execCommand("copy");}catch(_){} ta.remove(); return true; }
 }
 
+
+// 이메일 받기 — 구글 설문지로 전송(서버 없음). 유입 경로(utm·노트 id)도 함께 기록
+const FORM = {
+  action: "https://docs.google.com/forms/d/e/1FAIpQLScIS5YfA_dP8pJDf-Icn93fK3uaUmKw1sHpaMvQlJEiG0Fl3A/formResponse",
+  email: "entry.1441343414", source: "entry.1820841233", consent: "entry.1961977301"
+};
+const SRC = (() => {
+  const q = new URLSearchParams(location.search);
+  const parts = ["utm_source","utm_medium","utm_campaign","utm_content"].map(k => q.get(k)).filter(Boolean);
+  try {
+    if (parts.length) sessionStorage.setItem("nari_src", parts.join("/"));
+    return sessionStorage.getItem("nari_src") || "direct";
+  } catch(e){ return parts.join("/") || "direct"; }
+})();
+function subscribed(){ try { return localStorage.getItem("nari_sub") === "1"; } catch(e){ return false; } }
+function subForm(where){
+  const L = UI[lang];
+  if (subscribed()) return `<div class="sub done" data-where="${where}"><p class="sub-h">${L.sub_done}</p></div>`;
+  return `<form class="sub" data-where="${where}" novalidate>
+    <p class="sub-h">${where === "main" ? L.sub_h : L.sub_note}</p>
+    ${where === "main" ? `<p class="sub-p">${L.sub_p}</p>` : ""}
+    <div class="sub-row">
+      <input type="email" name="email" placeholder="${L.sub_ph}" autocomplete="email" inputmode="email" required>
+      <button type="submit">${L.sub_btn}</button>
+    </div>
+    <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <label class="sub-agree"><input type="checkbox" name="agree"> ${L.sub_agree}</label>
+    <details class="sub-more"><summary>${L.sub_more}</summary><p>${L.sub_detail}</p></details>
+  </form>`;
+}
+function bindSub(root){
+  $$("form.sub", root).forEach(f => f.addEventListener("submit", async e => {
+    e.preventDefault();
+    const L = UI[lang];
+    const email = f.email.value.trim();
+    if (f.website.value) return;
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { toast(L.sub_err_mail); f.email.focus(); return; }
+    if (!f.agree.checked) { toast(L.sub_err_agree); return; }
+    const note = (location.hash.match(/^#\/?([\w-]+)/) || [])[1];
+    const body = new URLSearchParams();
+    body.append(FORM.email, email);
+    body.append(FORM.source, [SRC, f.dataset.where, note || "", lang].filter(Boolean).join(" | "));
+    body.append(FORM.consent, "required:agree " + new Date().toISOString());
+    f.querySelector("button").disabled = true;
+    try { await fetch(FORM.action, { method: "POST", mode: "no-cors", body }); } catch(err){}
+    try { localStorage.setItem("nari_sub", "1"); } catch(err){}
+    toast(L.sub_ok);
+    $$(".sub").forEach(x => { x.outerHTML = subForm(x.dataset.where); });
+  }));
+}
+function renderSub(){ const m = $("#subMain"); if (m){ m.innerHTML = subForm("main"); bindSub(m); } }
+
 function applyUI(){
   document.documentElement.lang = lang;
   $$("[data-i18n]").forEach(el => el.textContent = UI[lang][el.dataset.i18n]);
@@ -223,8 +285,10 @@ function renderNote(n){
     <div class="memo"><div class="mlabel">prompt ✎</div><button class="copy" data-copy>${L.copy}</button><pre>${esc(n.prompt)}</pre></div>
     <div class="sticky"><b>${L.tip} ✿</b><ul>${t.tips.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div>
     <p class="cost">${esc(t.cost)}</p>
+    ${subForm("note")}
     <p class="n-foot"><a href="https://www.instagram.com/nari.ai.lab/" target="_blank" rel="noopener">${L.back_ig}</a></p>`;
   $("[data-copy]", $("#note")).addEventListener("click", async () => { await copyText(n.prompt); toast(L.copied_p); });
+  bindSub($("#note"));
 }
 
 function route(){
@@ -245,7 +309,7 @@ function route(){
 $("#langBtn").addEventListener("click", () => {
   lang = lang === "ko" ? "en" : "ko";
   try { localStorage.setItem("nari_lang", lang); } catch(e){}
-  applyUI(); renderGrid(); route();
+  applyUI(); renderGrid(); renderSub(); route();
 });
 $$("#tabs button").forEach(b => b.addEventListener("click", () => {
   filter = b.dataset.f;
@@ -258,4 +322,4 @@ document.addEventListener("keydown", e => { if (e.key === "Escape" && $("#sheet"
 $("#copyLink").addEventListener("click", async () => { await copyText(location.href); toast(UI[lang].copied); });
 window.addEventListener("hashchange", route);
 
-applyUI(); renderGrid(); route();
+applyUI(); renderGrid(); renderSub(); route();
